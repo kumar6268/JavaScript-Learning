@@ -41,3 +41,37 @@ const myFunction  = function (){
 }
 
 myFunction()
+
+
+
+
+
+// ***************************************//
+
+// Stack => Primitive data type store here
+
+
+let myName = "Santosh";  // it can not be change while assinging new variable value
+let myAnotherName = myName;
+myAnotherName = "kumar";
+console.log(myName);
+console.log(myAnotherName);
+
+
+// Heap Non-Primitive data type store here
+
+let userOne = {
+    name:"kumar",
+    mobileNo:7777777778
+}
+
+let userTow = userOne
+
+userTow.mobileNo = 7777777777;
+
+console.log(userOne.mobileNo);
+console.log(userTow.mobileNo);
+
+
+
+
