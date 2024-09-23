@@ -11,8 +11,7 @@
 
 const userLoggedIn = true;
 const debitCard = true;
-
-
+ 
 if (userLoggedIn && debitCard === false) {
     console.log("yes");
 } else if (userLoggedIn && debitCard === false) {
