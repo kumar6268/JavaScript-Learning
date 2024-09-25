@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLng(lName){
+        const li = document.createElement('li');
+        li.innerHTML = `${lName}`;
+        document.querySelector('.language').appendChild(li);
+        console.log(lName);
+    }
+    addLng("TypeScript");
+
+    // new approch add
+    function addOneMoreL(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+    addOneMoreL("ReactJS")
+
+    //Edit
+    const second = document.querySelector("li:nth-child(1)");
+    const newLi = document.createElement('li');
+    newLi.textContent = "Mojo";
+    second.replaceWith(newLi);
+
+    // edit second approch
+    const firstLanguage = document.querySelector("li:first-child");
+    firstLanguage.outerHTML = '<li>TypeScripttt</li>';
+
+    // remove approch in dom
+    const lastLanguage =  document.querySelector('li:last-child');
+    lastLanguage.remove();
+</script>
+</html>
