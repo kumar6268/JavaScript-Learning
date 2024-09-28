@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <ul id="images">
+            <li>
+                <img width="200px" id="image1" src="https://www.google.com/imgres?q=images&imgurl=https%3A%2F%2Fletsenhance.io%2Fstatic%2F8f5e523ee6b2479e26ecc91b9c25261e%2F1015f%2FMainAfter.jpg&imgrefurl=https%3A%2F%2Fletsenhance.io%2F&docid=-t22bY2ix3gHaM&tbnid=tYmxDgFq4MrkJM&vet=12ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA" alt="image">
+            </li>
+            <li>
+                <img width="200px" id="image2" src="https://www.google.com/imgres?q=images&imgurl=https%3A%2F%2Fletsenhance.io%2Fstatic%2F8f5e523ee6b2479e26ecc91b9c25261e%2F1015f%2FMainAfter.jpg&imgrefurl=https%3A%2F%2Fletsenhance.io%2F&docid=-t22bY2ix3gHaM&tbnid=tYmxDgFq4MrkJM&vet=12ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA" alt="image">
+            </li>
+            <li>
+                <img width="200px" id="imag3" src="https://www.google.com/imgres?q=images&imgurl=https%3A%2F%2Fletsenhance.io%2Fstatic%2F8f5e523ee6b2479e26ecc91b9c25261e%2F1015f%2FMainAfter.jpg&imgrefurl=https%3A%2F%2Fletsenhance.io%2F&docid=-t22bY2ix3gHaM&tbnid=tYmxDgFq4MrkJM&vet=12ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA..i&w=1280&h=720&hcb=2&ved=2ahUKEwjT2K3jl-WIAxV94zgGHeAjMEUQM3oECB0QAA" alt="image">
+            </li>
+            
+        </ul>
+    </div>
+</body>
+<script>
+// type, timestamp,defaultPrevented, target, toElement, srcElement,currentTarget
+
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log(e);
+        e.preventDefault();
+        e.stopPropagation();
+        console.log("clicked me");
+    }, false);
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.parentNode);
+        if(e.target.id === 'image2'){
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+        }
+        //removeIt.parentNode.removeChild(removeIt);
+    })
+</script>
+</html>
