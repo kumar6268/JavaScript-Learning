@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        p {
+            margin: 15px 0;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: calc(100% - 24px); /* Make input width responsive */
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            font-size: 20px;
+            display: block;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #result {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        #weight-guide {
+            margin-top: 30px;
+        }
+
+        #weight-guide h3 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        #weight-guide p {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #666;
+        }
+
+        #weight-guide p:first-child {
+            color: #ff0000; /* Underweight in red */
+        }
+
+        #weight-guide p:nth-child(3) {
+            color: #008000; /* Normal range in green */
+        }
+
+        #weight-guide p:last-child {
+            color: #ff9900; /* Overweight in orange */
+        }
+    </style>
+</head>
+<body>
+    <form>
+    <div class="container">
+        <p>
+            <label>Height In CM:</label>
+            <input type="text" id="height">
+        </p>
+        <p>
+            <label>Height In CM:</label>
+            <input type="text" id="weight">
+        </p>
+        <button>Calculator</button>
+        <div id="results"></div>
+        <div id="weight-guide">
+            <h3>BMI weight-guide</h3>
+            <p>Underweight = less than 18.6</p>
+            <p>Normal Range = 18.6 and 24.9</p>
+            <p>Overweight = Greater than 24.9</p>
+        </div>
+    </div>
+</form>
+</body>
+<script>
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e){
+        e.preventDefault();
+    const height = parseInt(document.querySelector("#height").value);
+    const weight = parseInt(document.querySelector("#weight").value);
+    const result = document.querySelector("#results");
+
+    if(height === '' || height < 0 || isNaN(height)){
+        result.innerHTML = `Plese give a valid height ${height}`;
+    }
+    if(weight === '' || weight < 0 || isNaN(weight)){
+        result.innerHTML = `Plese give a valid height ${weight}`;
+    } else{
+      const bmi = (weight / ((height * height) / 10000)).toFixed(2);
+        // show results
+        result.innerHTML = `<span>${bmi}</span>`;
+    }
+    });
+    
+</script>
+</html>
